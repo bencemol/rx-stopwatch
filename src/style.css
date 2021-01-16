@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #379D8F;
+}
+
+button {
+  font-size: 1rem;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: auto;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+#clock {
+  margin: 0 auto;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-weight: 600;
+  padding: 0.3rem;
+}
+
+.controls {
+  margin: auto;
+}
