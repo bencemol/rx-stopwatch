@@ -1,5 +1,5 @@
-import { fromEvent, interval, merge, NEVER, Observable } from 'rxjs';
-import { mapTo, scan, startWith, switchMap, tap } from 'rxjs/operators';
+import { fromEvent, interval, merge, Observable, of } from 'rxjs';
+import { mapTo, scan, switchMap, tap } from 'rxjs/operators';
 
 interface State {
   count: boolean;
@@ -28,7 +28,6 @@ export class StopWatch {
   private init() {
     this.events$
       .pipe(
-        startWith(initalState),
         scan(
           (state: State, payload: Partial<State>) => ({
             ...state,
@@ -37,15 +36,15 @@ export class StopWatch {
           initalState
         ),
         tap(console.log),
-        tap((state: State) => (this.clock = state.value)),
         switchMap((state: State) =>
           state.count
             ? interval(10).pipe(
                 tap(() => (state.value += 10)),
-                tap(() => (this.clock = state.value))
+                mapTo(state)
               )
-            : NEVER
-        )
+            : of(state)
+        ),
+        tap((state: State) => (this.clock = state.value))
       )
       .subscribe();
   }
