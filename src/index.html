@@ -6,13 +6,21 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <div id="app">
-      <div id="clock">00:00:00</div>
-      <div class="controls">
-        <button id="start">start</button>
-        <button id="pause">pause</button>
-        <button id="reset">reset</button>
+    <div id="container">
+        <div id="app">
+          <div id="clock">00:00:00</div>
+          <div class="controls">
+            <button id="start">start</button>
+            <button id="pause">pause</button>
+            <button id="reset">reset</button>
+            <button id="lap">lap</button>
+            <button id="revert">revert</button>
+          </div>
+          <input id="input-time" type="text" value="00:11:00">
+          <button id="set-time">Set time</button>
+        </div>
       </div>
+      <div id="laps"></div>
     </div>
     <script type="module" src="index.js"></script>
   </body>
