@@ -70,7 +70,7 @@ export class StopWatch {
     return fromEvent(document.querySelector(buttonQuerySelector)!, 'click')    
       .pipe(
         map(() => {
-          if(new RegExp('[0-9]{2}:[0-5][0-9]:[0-9]{2}$').test((<HTMLInputElement>document.querySelector(inputQuerySelector)!).value as string)){
+          if(new RegExp('^[0-9]{2}:[0-5][0-9]:[0-9]{2}$').test((<HTMLInputElement>document.querySelector(inputQuerySelector)!).value as string)){
             return {value: this.stringTimeToMs((<HTMLInputElement>document.querySelector(inputQuerySelector)!).value)};
           }
           alert("Does this look like a proper time format for ya? err")
